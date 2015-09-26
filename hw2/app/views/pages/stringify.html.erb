@@ -1,0 +1,10 @@
+<head>
+  <h1>Stringified!</h1>
+</head>
+<body>
+  <% if @name.blank? && @adjective.blank? %>
+  <h2><%= @text %></h2>
+  <% else %>
+  <h2><%= @name + " is so " + @adjective + "!" %></h2>
+  <% end %>
+</body>
