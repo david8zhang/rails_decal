@@ -1,0 +1,14 @@
+<h1>swiggity swooty comin for dat boody</h1>
+<h2>on my way to steal ur girl</h2>
+
+<% @Users.each do |u| %>
+  <p><%= u.name %> <%= u.email %></p>
+<% end %>
+
+<% @Cats.each do |c| %>
+  <p><%= c.name %></p>
+<% end %>
+
+<% @Todos.each do |t| %>
+  <p><%= t.task %> <%= t.description %></p>
+<% end %>
