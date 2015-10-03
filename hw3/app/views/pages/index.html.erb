@@ -2,7 +2,7 @@
 <h2>on my way to steal ur girl</h2>
 
 <% @Users.each do |u| %>
-  <p><%= u.name %> <%= u.email %></p>
+  <p><%= u.username %> <%= u.email %> <%= u.age %> </p>
 <% end %>
 
 <% @Cats.each do |c| %>
@@ -10,5 +10,5 @@
 <% end %>
 
 <% @Todos.each do |t| %>
-  <p><%= t.task %> <%= t.description %></p>
+  <p><%= t.task %> <%=t.finished %> <%= t.description %></p>
 <% end %>

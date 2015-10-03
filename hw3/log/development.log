@@ -309,3 +309,66 @@ Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8b
 
 
 Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for 127.0.0.1 at 2015-10-01 22:14:05 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeUsersColumnName (20151003061139)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151003061139"]]
+  [1m[35m (3.2ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RenameUsersColumnName (20151003061429)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151003061429"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RenameUsersColumn (20151003062330)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (1.4ms)[0m  [1mCREATE TEMPORARY TABLE "ausers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime, "age" integer) [0m
+  [1m[35m (0.2ms)[0m  SELECT * FROM "users"
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "ausers" ("id","username","email","created_at","updated_at","age") VALUES (1, 'David', 'a@b.com', '2015-10-02 05:10:15.506043', '2015-10-02 05:10:15.506043', NULL)[0m
+  [1m[35m (1.5ms)[0m  DROP TABLE "users"
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime, "age" integer) [0m
+  [1m[35m (0.2ms)[0m  SELECT * FROM "ausers"
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "users" ("id","username","email","created_at","updated_at","age") VALUES (1, 'David', 'a@b.com', '2015-10-02 05:10:15.506043', '2015-10-02 05:10:15.506043', NULL)[0m
+  [1m[35m (0.8ms)[0m  DROP TABLE "ausers"
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151003062330"]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to FixTaskColumn (20151003062750)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "tasks" ADD "finished" boolean[0m
+SQLite3::SQLException: no such table: tasks: ALTER TABLE "tasks" ADD "finished" boolean
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to FixTaskColumn (20151003062750)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (8.2ms)[0m  [1mALTER TABLE "todos" ADD "finished" boolean[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151003062750"]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("age", "created_at", "email", "updated_at", "username") VALUES (?, ?, ?, ?, ?)  [["age", 5], ["created_at", "2015-10-03 06:31:48.212878"], ["email", "b@a.com"], ["updated_at", "2015-10-03 06:31:48.212878"], ["username", "Bob"]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "todos" ("created_at", "description", "finished", "task", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-10-03 06:32:36.420700"], ["description", "get dat big booty"], ["finished", "t"], ["task", "get dat booty"], ["updated_at", "2015-10-03 06:32:36.420700"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-02 23:33:37 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/David/.rvm/gems/ruby-2.2.0@rails_decal/gems/railties-4.1.5/lib/rails/templates/rails/welcome/index.html.erb (4.8ms)
+Completed 200 OK in 35ms (Views: 26.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2015-10-02 23:33:42 -0700
+Processing by PagesController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCat Load (0.1ms)[0m  [1mSELECT "cats".* FROM "cats"[0m
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered pages/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 399ms (Views: 389.7ms | ActiveRecord: 1.3ms)
