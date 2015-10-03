@@ -372,3 +372,13 @@ Processing by PagesController#index as HTML
   [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos"
   Rendered pages/index.html.erb within layouts/application (9.8ms)
 Completed 200 OK in 399ms (Views: 389.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-02 23:43:09 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCat Load (0.1ms)[0m  [1mSELECT "cats".* FROM "cats"[0m
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered pages/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 412ms (Views: 395.3ms | ActiveRecord: 1.1ms)
