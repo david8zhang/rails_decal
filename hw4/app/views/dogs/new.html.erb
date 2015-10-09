@@ -1,0 +1,10 @@
+<h1>Create new Dog</h1>
+<%= form_for @dog do |d| %>
+  <%= d.label :name %>:
+  <%= d.text_field :name %><br />
+
+  <%= d.label :age %>:
+  <%= d.text_field :age %><br />
+
+  <%= d.submit %>
+<% end %>
